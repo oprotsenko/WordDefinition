@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">?android:attr/fontFamily</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="ButtonStyle" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:fontFamily">?android:attr/fontFamily</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:background">@drawable/button_shape</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_marginTop">@dimen/margin</item>
+        <item name="android:padding">@dimen/margin</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCollapsedPaddingTop">0dp</item>
+        <item name="expandedHintEnabled">false</item>
+        <item name="hintTextColor">?android:attr/textColorHint</item>
+        <item name="placeholderTextColor">?android:attr/textColorHint</item>
+        <item name="android:textColorHint">?android:attr/textColorHint</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="boxStrokeColor">?android:attr/textColorHint</item>
+        <item name="boxStrokeWidth">@dimen/border_width_1.5</item>
+        <item name="android:ems">10</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="EditTextFieldStyle" parent="TextStyle">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="boxCollapsedPaddingTop">-16dp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_gray</item>
+    </style>
+
+</resources>

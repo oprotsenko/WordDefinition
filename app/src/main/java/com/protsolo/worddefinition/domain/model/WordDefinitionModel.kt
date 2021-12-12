@@ -3,7 +3,7 @@ package com.protsolo.worddefinition.domain.model
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-class WordDefinition : ArrayList<WordDefinitionItem>()
+class WordDefinitionModel : ArrayList<WordDefinitionItem>()
 
 @Parcelize
 data class WordDefinitionItem(

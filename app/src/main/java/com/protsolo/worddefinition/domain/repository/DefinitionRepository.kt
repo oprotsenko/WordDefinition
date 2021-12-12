@@ -1,8 +1,8 @@
-package com.protsolo.worddefinition.data.repository
+package com.protsolo.worddefinition.domain.repository
 
-import com.protsolo.worddefinition.data.repository.local.room.ILocalDataSource
-import com.protsolo.worddefinition.data.repository.remote.retrofit.IRemoteDataSource
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
+import com.protsolo.worddefinition.domain.repository.local.ILocalDataSource
+import com.protsolo.worddefinition.domain.repository.remote.IRemoteDataSource
 import okhttp3.ResponseBody.Companion.toResponseBody
 import retrofit2.Response
 

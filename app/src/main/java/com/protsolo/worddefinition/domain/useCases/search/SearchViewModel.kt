@@ -1,10 +1,10 @@
-package com.protsolo.worddefinition.presentation.main.search
+package com.protsolo.worddefinition.domain.useCases.search
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.protsolo.worddefinition.data.repository.DefinitionRepository
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
-import com.protsolo.worddefinition.utils.SingleLiveEvent
+import com.protsolo.worddefinition.domain.repository.DefinitionRepository
+import com.protsolo.worddefinition.domain.utils.SingleLiveEvent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

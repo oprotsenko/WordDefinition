@@ -36,17 +36,3 @@ fun DefinitionEntity.mapToRemote(gson: Gson): WordDefinitionItem {
         meanings = gson.fromJson(this.meanings, type)
     )
 }
-
-//@Parcelize
-//data class Meaning(
-//    @ColumnInfo(name = "partOfSpeech")
-//    val partOfSpeech: String?,
-//    @ColumnInfo(name = "definitions")
-//    val definitions: String?
-//) : Parcelable
-//
-//@Parcelize
-//data class Definition(
-//    @ColumnInfo(name = "definition")
-//    val definition: String?,
-//) : Parcelable

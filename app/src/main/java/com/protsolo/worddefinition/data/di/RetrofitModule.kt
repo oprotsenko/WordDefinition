@@ -1,7 +1,6 @@
 package com.protsolo.worddefinition.data.di
 
-import com.protsolo.worddefinition.data.repository.remote.DefinitionRemote
-import com.protsolo.worddefinition.domain.repository.IRequestApi
+import com.protsolo.worddefinition.data.repository.remote.IRequestApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -9,7 +8,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 val retrofitModules = module {
-    single { DefinitionRemote(get()) }
     single { requestInterceptor() }
     single { requestOkHttpClient(get()) }
     single { requestRetrofit(get()) }

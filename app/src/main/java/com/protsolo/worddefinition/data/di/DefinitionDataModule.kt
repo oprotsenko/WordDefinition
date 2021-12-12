@@ -2,13 +2,13 @@ package com.protsolo.worddefinition.data.di
 
 
 import com.google.gson.Gson
-import com.protsolo.worddefinition.data.repository.DefinitionRepository
-import com.protsolo.worddefinition.data.repository.local.room.ILocalDataSource
 import com.protsolo.worddefinition.data.repository.local.room.RoomDefinitionDataSource
 import com.protsolo.worddefinition.data.repository.local.room.WordDefinitionDataBase
-import com.protsolo.worddefinition.data.repository.remote.retrofit.IRemoteDataSource
 import com.protsolo.worddefinition.data.repository.remote.retrofit.RetrofitDefinitionDataSource
-import com.protsolo.worddefinition.domain.repository.IRequestApi
+import com.protsolo.worddefinition.domain.repository.DefinitionRepository
+import com.protsolo.worddefinition.domain.repository.local.ILocalDataSource
+import com.protsolo.worddefinition.domain.repository.remote.IRemoteDataSource
+import com.protsolo.worddefinition.data.repository.remote.IRequestApi
 import org.koin.dsl.module
 
 val definitionDataModule = module {

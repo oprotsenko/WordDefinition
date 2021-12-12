@@ -1,4 +1,4 @@
-package com.protsolo.worddefinition.domain.useCases.definition
+package com.protsolo.worddefinition.presentation.main.definition
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.protsolo.worddefinition.presentation.base
+package com.protsolo.worddefinition.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

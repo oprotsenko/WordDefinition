@@ -1,8 +1,8 @@
-package com.protsolo.worddefinition.data.di
+package com.protsolo.worddefinition.di
 
 import android.content.Context
 import androidx.room.Room
-import com.protsolo.worddefinition.data.repository.local.room.WordDefinitionDataBase
+import com.protsolo.worddefinition.data.local.room.WordDefinitionDataBase
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 

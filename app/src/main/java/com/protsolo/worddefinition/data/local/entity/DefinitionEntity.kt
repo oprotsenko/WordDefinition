@@ -1,30 +1,23 @@
-package com.protsolo.worddefinition.data.repository.local.entity
+package com.protsolo.worddefinition.data.local.entity
 
 import android.os.Parcelable
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.protsolo.worddefinition.data.repository.local.entity.DefinitionEntity.Companion.TABLE_NAME
 import com.protsolo.worddefinition.domain.model.Meaning
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
+import com.protsolo.worddefinition.utils.Constants.TABLE_NAME
 import kotlinx.parcelize.Parcelize
 import java.lang.reflect.Type
 
 @Entity(tableName = TABLE_NAME)@Parcelize
 data class DefinitionEntity(
-    @PrimaryKey @ColumnInfo(name = "word")
+    @PrimaryKey
     val word: String,
-    @ColumnInfo(name = "phonetic")
     val phonetic: String?,
-    @ColumnInfo(name = "meanings")
     val meanings: String?,
-) : Parcelable {
-    companion object {
-        const val TABLE_NAME = "word_definition_entity_table"
-    }
-}
+) : Parcelable
 
 fun DefinitionEntity.mapToRemote(gson: Gson): WordDefinitionItem {
 

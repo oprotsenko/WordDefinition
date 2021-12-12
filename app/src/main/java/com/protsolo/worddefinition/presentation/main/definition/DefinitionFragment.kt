@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.protsolo.worddefinition.databinding.FragmentDefinitionBinding
-import com.protsolo.worddefinition.domain.useCases.definition.DefinitionViewModel
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
-import com.protsolo.worddefinition.presentation.base.BaseFragment
+import com.protsolo.worddefinition.base.BaseFragment
 
 
 class DefinitionFragment :

@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.protsolo.worddefinition.domain.utils;
+package com.protsolo.worddefinition.utils;
 
 import android.util.Log;
 

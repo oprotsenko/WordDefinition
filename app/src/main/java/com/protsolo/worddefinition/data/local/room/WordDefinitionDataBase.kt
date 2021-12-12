@@ -1,8 +1,8 @@
-package com.protsolo.worddefinition.data.repository.local.room
+package com.protsolo.worddefinition.data.local.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.protsolo.worddefinition.data.repository.local.entity.DefinitionEntity
+import com.protsolo.worddefinition.data.local.entity.DefinitionEntity
 
 @Database(entities = [
     DefinitionEntity::class

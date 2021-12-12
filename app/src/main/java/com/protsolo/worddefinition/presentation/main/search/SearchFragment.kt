@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.protsolo.worddefinition.databinding.FragmentSearchBinding
-import com.protsolo.worddefinition.domain.useCases.search.SearchViewModel
 import com.protsolo.worddefinition.hideKeyboard
-import com.protsolo.worddefinition.presentation.base.BaseFragment
+import com.protsolo.worddefinition.base.BaseFragment
 import com.protsolo.worddefinition.presentation.main.ISearchDefinitionListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

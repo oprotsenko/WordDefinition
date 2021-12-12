@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.protsolo.worddefinition.base.BaseFragment
 import com.protsolo.worddefinition.databinding.FragmentSearchBinding
-import com.protsolo.worddefinition.hideKeyboard
+import com.protsolo.worddefinition.utils.extentions.hideKeyboard
 import com.protsolo.worddefinition.presentation.main.ISearchDefinitionListener
 import com.protsolo.worddefinition.presentation.main.search.adapter.WordAdapter
 import com.protsolo.worddefinition.utils.Constants

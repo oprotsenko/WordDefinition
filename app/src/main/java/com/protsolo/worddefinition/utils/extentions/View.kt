@@ -1,4 +1,4 @@
-package com.protsolo.worddefinition
+package com.protsolo.worddefinition.utils.extentions
 
 import android.view.View
 import android.view.inputmethod.InputMethodManager

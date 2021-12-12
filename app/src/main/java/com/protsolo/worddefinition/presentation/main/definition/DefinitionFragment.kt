@@ -6,7 +6,7 @@ import androidx.fragment.app.viewModels
 import com.protsolo.worddefinition.base.BaseFragment
 import com.protsolo.worddefinition.databinding.FragmentDefinitionBinding
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
-import com.protsolo.worddefinition.hideKeyboard
+import com.protsolo.worddefinition.utils.extentions.hideKeyboard
 
 class DefinitionFragment :
     BaseFragment<FragmentDefinitionBinding>(FragmentDefinitionBinding::inflate) {

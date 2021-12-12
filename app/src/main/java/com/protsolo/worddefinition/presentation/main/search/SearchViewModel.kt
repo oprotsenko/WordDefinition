@@ -1,21 +1,20 @@
 package com.protsolo.worddefinition.presentation.main.search
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import com.protsolo.worddefinition.data.Repository
-import com.protsolo.worddefinition.domain.model.WordDefinition
+import com.protsolo.worddefinition.data.repository.DefinitionRepository
+import com.protsolo.worddefinition.domain.model.WordDefinitionItem
+import com.protsolo.worddefinition.utils.SingleLiveEvent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-class SearchViewModel(private val repository: Repository) : ViewModel() {
+class SearchViewModel(private val definitionRepository: DefinitionRepository) : ViewModel() {
 
-    val data: MutableLiveData<WordDefinition> by lazy { MutableLiveData() }
+    val data: MutableLiveData<WordDefinitionItem> by lazy { MutableLiveData() }
+    val definitionIsNotFound: SingleLiveEvent<Boolean> by lazy { SingleLiveEvent() }
 
     private var job = Job()
     private val coroutineContext: CoroutineContext
@@ -27,25 +26,16 @@ class SearchViewModel(private val repository: Repository) : ViewModel() {
     }
 
     fun fetchData(word: String) {
-        CoroutineScope(coroutineContext).launch {
-            val definition = repository.getDefinition(word)
-            if (definition.isSuccessful) {
-                Log.d("TAG", definition.body()?.word.toString())
-                data.postValue(definition.body())
-            } else {
-                Log.d("TAG", definition.message())
-            }
-        }
+        makeRequest(word)
     }
 
-    private fun getDefinition(word: String): LiveData<WordDefinition> {
-        return liveData {
-            val definition = repository.getDefinition(word)
+    private fun makeRequest(word: String) {
+        CoroutineScope(coroutineContext).launch {
+            val definition = definitionRepository.getDefinition(word)
             if (definition.isSuccessful) {
-                Log.d("TAG", definition.body()?.word.toString())
-                definition.body()?.let { emit(it) }
+                data.postValue(definition.body())
             } else {
-                Log.d("TAG", definition.message())
+                definitionIsNotFound.postValue(true)
             }
         }
     }

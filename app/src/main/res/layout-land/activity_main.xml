@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.protsolo.worddefinition.presentation.main.search.SearchFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/definitionFragment"
         android:name="com.protsolo.worddefinition.presentation.main.definition.DefinitionFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         tools:layout="@layout/fragment_definition" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Word Definition</string>
-    <string name="search">Search definition</string>
-    <string name="search_word_placeholder">Enter your word here</string>
+    <string name="search_hint">Search word definition</string>
+    <string name="search_definition">Search definition</string>
 </resources>

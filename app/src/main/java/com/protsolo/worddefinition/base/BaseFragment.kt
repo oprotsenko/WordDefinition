@@ -22,4 +22,16 @@ abstract class BaseFragment<T : ViewBinding>(
         _binding = this.inflater.invoke(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        recyclerInit()
+        setObservers()
+        setListeners()
+    }
+
+    open fun setObservers() {}
+
+    open fun recyclerInit() {}
+
+    open fun setListeners(){}
 }

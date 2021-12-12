@@ -4,7 +4,7 @@ import com.protsolo.worddefinition.data.DefinitionRepository
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
 import retrofit2.Response
 
-class SearchUseCase(private val definitionRepository: DefinitionRepository) {
+class SearchDefinition(private val definitionRepository: DefinitionRepository) {
     suspend fun getDefinition(word: String) : Response<WordDefinitionItem> =
         definitionRepository.getDefinition(word)
 }

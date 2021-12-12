@@ -15,4 +15,10 @@ interface WordDefinitionDao {
 
     @Query("SELECT * FROM $TABLE_NAME WHERE :word like word")
     suspend fun getDefinition(word: String) : DefinitionEntity?
+
+    @Query("SELECT * FROM $TABLE_NAME")
+    suspend fun getAllData() : List<DefinitionEntity>?
+
+    @Query("DELETE FROM $TABLE_NAME")
+    suspend fun clearData()
 }

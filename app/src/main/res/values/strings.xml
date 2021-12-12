@@ -2,4 +2,6 @@
     <string name="app_name">Word Definition</string>
     <string name="search_hint">Search word definition</string>
     <string name="search_definition">Search definition</string>
+    <string name="recent_search_words">Recently searched:</string>
+    <string name="clear_button_description">Clear all recent words</string>
 </resources>

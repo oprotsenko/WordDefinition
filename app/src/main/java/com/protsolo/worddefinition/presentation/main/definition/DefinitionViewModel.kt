@@ -6,7 +6,7 @@ import com.protsolo.worddefinition.domain.model.WordDefinitionItem
 
 class DefinitionViewModel : ViewModel() {
 
-    val definitionData: MutableLiveData<WordDefinitionItem> by lazy { MutableLiveData() }
+    val definitionData by lazy { MutableLiveData<WordDefinitionItem>() }
 
     fun getDefinitionItem(wordDefinitionItem: WordDefinitionItem) {
         definitionData.value = wordDefinitionItem

@@ -4,17 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_700"
+    android:background="?android:attr/colorPrimary"
     android:padding="@dimen/parent_layout_padding">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewRecent"
+        android:id="@+id/textViewRecentWords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recent_search_words"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewRecent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fButtonClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_anchor="@id/recyclerViewRecent"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewRecent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewRecent"
+        app:srcCompat="@drawable/ic_delete"
+        android:contentDescription="@string/clear_button_description" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRecent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/inputLayoutSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_word" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutSearch"

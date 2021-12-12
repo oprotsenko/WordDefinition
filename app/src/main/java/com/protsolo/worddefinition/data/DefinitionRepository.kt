@@ -1,5 +1,6 @@
 package com.protsolo.worddefinition.data
 
+import com.protsolo.worddefinition.data.local.entity.DefinitionEntity
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
 import com.protsolo.worddefinition.domain.repository.local.ILocalDataSource
 import com.protsolo.worddefinition.domain.repository.remote.IRemoteDataSource
@@ -28,5 +29,15 @@ class DefinitionRepository(
         } else {
             Response.success(localDefinition)
         }
+    }
+
+    suspend fun getLocalWordsBase() : List<DefinitionEntity>? =
+        localDataSource.getLocalWordsBase()
+
+    suspend fun getLocalWord(word: String) : WordDefinitionItem? =
+        localDataSource.getWordDefinition(word)
+
+    suspend fun clearData() {
+        localDataSource.clearData()
     }
 }

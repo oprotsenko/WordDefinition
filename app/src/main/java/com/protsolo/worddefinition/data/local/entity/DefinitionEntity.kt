@@ -20,12 +20,10 @@ data class DefinitionEntity(
 ) : Parcelable
 
 fun DefinitionEntity.mapToRemote(gson: Gson): WordDefinitionItem {
-
     val type: Type = object : TypeToken<List<Meaning>>() {}.type
-
     return WordDefinitionItem(
         word = this.word,
-        phonetic = this.phonetic.toString(),
+        phonetic = this.phonetic?: "",
         meanings = gson.fromJson(this.meanings, type)
     )
 }

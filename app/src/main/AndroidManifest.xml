@@ -14,7 +14,8 @@
         android:theme="@style/Theme.WordDefinition">
         <activity
             android:name=".presentation.main.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

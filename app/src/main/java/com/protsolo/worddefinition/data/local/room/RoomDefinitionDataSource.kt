@@ -7,6 +7,7 @@ import com.protsolo.worddefinition.domain.model.WordDefinitionItem
 import com.protsolo.worddefinition.domain.model.WordDefinitionModel
 import com.protsolo.worddefinition.domain.repository.local.ILocalDataSource
 import retrofit2.Response
+
 class RoomDefinitionDataSource(
     private val gson: Gson,
     private val wordDefinitionDao: WordDefinitionDao
@@ -25,5 +26,11 @@ class RoomDefinitionDataSource(
 
     override suspend fun getWordDefinition(word: String): WordDefinitionItem? =
         wordDefinitionDao.getDefinition(word)?.mapToRemote(gson)
-}
 
+    override suspend fun getLocalWordsBase(): List<DefinitionEntity>? =
+        wordDefinitionDao.getAllData()
+
+    override suspend fun clearData() {
+        wordDefinitionDao.clearData()
+    }
+}

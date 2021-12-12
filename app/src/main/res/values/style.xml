@@ -18,13 +18,9 @@
 
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxCollapsedPaddingTop">0dp</item>
-<!--        <item name="expandedHintEnabled">false</item>-->
         <item name="hintTextColor">?android:attr/textColorHint</item>
-        <item name="placeholderTextColor">?android:attr/textColorHint</item>
         <item name="android:textColorHint">?android:attr/textColorHint</item>
         <item name="android:textSize">@dimen/text_size</item>
-        <item name="boxStrokeColor">?android:attr/textColorHint</item>
-        <item name="boxStrokeWidth">@dimen/border_width_1.5</item>
         <item name="android:ems">10</item>
         <item name="android:gravity">start</item>
     </style>
@@ -33,8 +29,14 @@
         <item name="android:background">@android:color/transparent</item>
         <item name="android:paddingLeft">0dp</item>
         <item name="boxCollapsedPaddingTop">-16dp</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
         <item name="android:textCursorDrawable">@drawable/cursor_gray</item>
+    </style>
+
+    <style name="FloatingButtonStyle" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:backgroundTint">?android:attr/colorPrimary</item>
+        <item name="borderWidth">@dimen/border_width</item>
+        <item name="tint">?android:attr/textColorPrimary</item>
+        <item name="backgroundTint">?android:attr/textColorHint</item>
     </style>
 
 </resources>

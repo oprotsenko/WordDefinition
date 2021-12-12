@@ -4,9 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/drawable/button_shape.xml" value="0.2703125" />
+        <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/drawable/clickable_text.xml" value="0.2171875" />
+        <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/drawable/cursor_gray.xml" value="0.2703125" />
         <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/drawable/cursor_grey.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/drawable/ic_clickable_delete.xml" value="0.19427083333333334" />
+        <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/drawable/ic_delete.xml" value="0.19427083333333334" />
         <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/layout-land/activity_main.xml" value="0.11022927689594356" />
         <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/layout-sw600dp/activity_main.xml" value="0.12568306010928962" />
+        <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/layout-v25/fragment_definition.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/layout/fragment_definition.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/miste/AndroidStudioProjects/WordDefinition/app/src/main/res/layout/fragment_search.xml" value="0.17300724637681159" />

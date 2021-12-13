@@ -1,27 +1,45 @@
 package com.protsolo.worddefinition.presentation.main.definition
 
-import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.viewModels
+import com.protsolo.worddefinition.R
 import com.protsolo.worddefinition.base.BaseFragment
 import com.protsolo.worddefinition.databinding.FragmentDefinitionBinding
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
+import com.protsolo.worddefinition.presentation.main.definition.adapter.MeaningsAdapter
 import com.protsolo.worddefinition.utils.extentions.hideKeyboard
 
 class DefinitionFragment :
     BaseFragment<FragmentDefinitionBinding>(FragmentDefinitionBinding::inflate) {
 
     private val viewModel: DefinitionViewModel by viewModels()
+    private val meaningsAdapter by lazy { MeaningsAdapter() }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.definitionData.observe(viewLifecycleOwner, {
-            binding.textViewDefinition.text = parseDefinition(it)
-        })
+    override fun recyclerInit() {
+        binding.recyclerViewMeanings.apply {
+            adapter = meaningsAdapter
+            itemAnimator?.changeDuration = 0
+        }
+    }
+
+    override fun setObservers() {
+        viewModel.apply {
+            definitionData.observe(viewLifecycleOwner, {
+                binding.apply {
+                    textViewWord.text = requireContext().getString(R.string.word).plus(it.word)
+                    textViewPhonetic.text = requireContext().getString(R.string.phonetic).plus(it.phonetic)
+                    textViewMeanings.text = requireContext().getString(R.string.meanings)
+                    setMeanings(it.meanings)
+                }
+            })
+
+            meaningsData.observe(viewLifecycleOwner, {
+                meaningsAdapter.submitList(it)
+            })
+        }
     }
 
     override fun setListeners() {
-        binding.textViewDefinition.apply {
+        binding.root.apply {
             setOnClickListener {
                 hideKeyboard()
             }
@@ -29,24 +47,6 @@ class DefinitionFragment :
     }
 
     fun setDefinition(wordDefinitionItem: WordDefinitionItem) {
-        viewModel.getDefinitionItem(wordDefinitionItem)
-    }
-
-    private fun parseDefinition(wordDefinitionItem: WordDefinitionItem): StringBuilder {
-        val definition = StringBuilder()
-        definition.append("word: ")
-            .append(wordDefinitionItem.word)
-            .append("\n\n")
-            .append("phonetic: ")
-            .append(wordDefinitionItem.phonetic)
-            .append("\n\nmeanings:")
-        wordDefinitionItem.meanings?.forEach { meaning ->
-            definition.append("\n       part of speech: ")
-                .append(meaning.partOfSpeech)
-                .append("\n       definition: ")
-                .append(meaning.definitions?.first()?.definition)
-                .append("\n")
-        }
-        return definition
+        viewModel.setDefinitionItem(wordDefinitionItem)
     }
 }

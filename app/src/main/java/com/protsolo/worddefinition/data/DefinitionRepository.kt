@@ -1,18 +1,18 @@
 package com.protsolo.worddefinition.data
 
+import com.protsolo.worddefinition.data.local.ILocalDataSource
 import com.protsolo.worddefinition.data.local.entity.DefinitionEntity
+import com.protsolo.worddefinition.data.remote.IRemoteDataSource
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
-import com.protsolo.worddefinition.domain.repository.local.ILocalDataSource
-import com.protsolo.worddefinition.domain.repository.remote.IRemoteDataSource
 import okhttp3.ResponseBody.Companion.toResponseBody
 import retrofit2.Response
 
 class DefinitionRepository(
     private val localDataSource: ILocalDataSource,
     private val remoteDataSource: IRemoteDataSource
-) {
+) : IRepository {
 
-    suspend fun getDefinition(word: String): Response<WordDefinitionItem> {
+    override suspend fun getDefinition(word: String): Response<WordDefinitionItem> {
         val localDefinition = localDataSource.getWordDefinition(word)
         return if (localDefinition == null) {
             try {
@@ -31,13 +31,13 @@ class DefinitionRepository(
         }
     }
 
-    suspend fun getLocalWordsBase() : List<DefinitionEntity>? =
+    override suspend fun getLocalWordsBase() : List<DefinitionEntity>? =
         localDataSource.getLocalWordsBase()
 
-    suspend fun getLocalWord(word: String) : WordDefinitionItem? =
+    override suspend fun getLocalWord(word: String) : WordDefinitionItem? =
         localDataSource.getWordDefinition(word)
 
-    suspend fun clearData() {
+    override suspend fun clearData() {
         localDataSource.clearData()
     }
 }

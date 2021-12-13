@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.protsolo.worddefinition.base.BaseFragment
 import com.protsolo.worddefinition.databinding.FragmentSearchBinding
-import com.protsolo.worddefinition.utils.extentions.hideKeyboard
 import com.protsolo.worddefinition.presentation.main.ISearchDefinitionListener
 import com.protsolo.worddefinition.presentation.main.search.adapter.WordAdapter
 import com.protsolo.worddefinition.utils.Constants
+import com.protsolo.worddefinition.utils.extentions.hideKeyboard
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -18,7 +18,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
     IItemClickListener {
 
     private val viewModel: SearchViewModel by viewModel()
-    private val wordAdapter: WordAdapter by lazy { WordAdapter(onItemClickListener = this) }
+    private val wordAdapter by lazy { WordAdapter(onItemClickListener = this) }
     private var searchListener: ISearchDefinitionListener? = null
     private var requiredWord = ""
 
@@ -37,7 +37,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 
     override fun setObservers() {
         viewModel.apply {
-            wordDefinition.observe(viewLifecycleOwner, {
+            wordDefinitionData.observe(viewLifecycleOwner, {
                 binding.editTextSearch.text?.clear()
                 searchListener?.onSearchDefinition(it)
             })
@@ -52,7 +52,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
                 }
             })
 
-            internetAccess.observe(viewLifecycleOwner, { internetAccess ->
+            internetAccessStatement.observe(viewLifecycleOwner, { internetAccess ->
                 if (!internetAccess) {
                     Toast.makeText(
                         requireContext(),
@@ -93,7 +93,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             val word = recentWordsData.value?.get(position)
             word?.let {
                 viewModelScope.launch {
-                    wordDefinition.value = getLocalWord(word)
+                    wordDefinitionData.value = getLocalWord(word)
                 }
             }
         }

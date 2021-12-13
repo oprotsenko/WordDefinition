@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/recent_search_words"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewRecent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,10 +33,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/inputLayoutSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRecentWords"
         tools:listitem="@layout/item_word" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -46,10 +44,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/search_hint"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewRecent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextSearch"
@@ -65,7 +63,6 @@
         android:layout_height="wrap_content"
         android:text="@string/search_definition"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutSearch" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
  </androidx.constraintlayout.widget.ConstraintLayout>

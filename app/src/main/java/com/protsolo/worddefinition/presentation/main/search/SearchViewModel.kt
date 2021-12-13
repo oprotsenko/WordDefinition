@@ -4,20 +4,22 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
-import com.protsolo.worddefinition.domain.useCases.RecentDefinition
+import com.protsolo.worddefinition.domain.useCases.ClearRecentWords
+import com.protsolo.worddefinition.domain.useCases.GetLocalDefinition
 import com.protsolo.worddefinition.domain.useCases.SearchDefinition
 import com.protsolo.worddefinition.utils.SingleLiveEvent
 import kotlinx.coroutines.launch
 
 class SearchViewModel(
     private val searchDefinition: SearchDefinition,
-    private val recentDefinition: RecentDefinition
+    private val getLocalDefinition: GetLocalDefinition,
+    private val clearRecentWords: ClearRecentWords
 ) : ViewModel() {
 
     val recentWordsData by lazy { MutableLiveData<List<String>>() }
-    val wordDefinition by lazy { MutableLiveData<WordDefinitionItem>() }
+    val wordDefinitionData by lazy { MutableLiveData<WordDefinitionItem>() }
     val definitionIsNotFound by lazy { SingleLiveEvent<Boolean>() }
-    val internetAccess by lazy { SingleLiveEvent<Boolean>() }
+    val internetAccessStatement by lazy { SingleLiveEvent<Boolean>() }
 
     init {
         viewModelScope.launch {
@@ -29,10 +31,10 @@ class SearchViewModel(
         viewModelScope.launch {
             val definition = searchDefinition.getDefinition(word)
             if (definition.isSuccessful) {
-                wordDefinition.postValue(definition.body())
+                wordDefinitionData.postValue(definition.body())
             } else {
                 when (definition.code()) {
-                    401 -> internetAccess.postValue(false)
+                    401 -> internetAccessStatement.postValue(false)
                     else -> definitionIsNotFound.postValue(true)
                 }
 
@@ -42,15 +44,15 @@ class SearchViewModel(
     }
 
     suspend fun clearRecentWords() {
-        recentDefinition.clearData()
+        clearRecentWords.clearData()
         refreshRecentWords()
     }
 
     suspend fun getLocalWord(word: String) =
-        recentDefinition.getLocalDataWord(word)
+        getLocalDefinition.getLocalDataWord(word)
 
     private suspend fun refreshRecentWords() {
-        val wordsList = recentDefinition.getRecentWords()?.map {
+        val wordsList = getLocalDefinition.getRecentWords()?.map {
             it.word
         }
         recentWordsData.value = wordsList

@@ -1,4 +1,4 @@
-package com.protsolo.worddefinition.domain.repository.remote
+package com.protsolo.worddefinition.data.remote
 
 import com.protsolo.worddefinition.domain.model.WordDefinitionModel
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.protsolo.worddefinition.domain.repository.local
+package com.protsolo.worddefinition.data.local
 
 import com.protsolo.worddefinition.data.local.entity.DefinitionEntity
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem

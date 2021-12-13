@@ -2,7 +2,7 @@ package com.protsolo.worddefinition.data.remote.retrofit
 
 import com.protsolo.worddefinition.data.remote.IDefinitionApi
 import com.protsolo.worddefinition.domain.model.WordDefinitionModel
-import com.protsolo.worddefinition.domain.repository.remote.IRemoteDataSource
+import com.protsolo.worddefinition.data.remote.IRemoteDataSource
 import retrofit2.Response
 
 class RetrofitDefinitionDataSource(private val definitionApi: IDefinitionApi) : IRemoteDataSource {

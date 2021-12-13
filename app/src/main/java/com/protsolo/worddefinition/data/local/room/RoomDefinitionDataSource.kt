@@ -5,7 +5,7 @@ import com.protsolo.worddefinition.data.local.entity.DefinitionEntity
 import com.protsolo.worddefinition.data.local.entity.mapToRemote
 import com.protsolo.worddefinition.domain.model.WordDefinitionItem
 import com.protsolo.worddefinition.domain.model.WordDefinitionModel
-import com.protsolo.worddefinition.domain.repository.local.ILocalDataSource
+import com.protsolo.worddefinition.data.local.ILocalDataSource
 import retrofit2.Response
 
 class RoomDefinitionDataSource(

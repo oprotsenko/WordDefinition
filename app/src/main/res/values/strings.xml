@@ -4,4 +4,9 @@
     <string name="search_definition">Search definition</string>
     <string name="recent_search_words">Recently searched:</string>
     <string name="clear_button_description">Clear all recent words</string>
+    <string name="word">Word: </string>
+    <string name="phonetic">Phonetic: </string>
+    <string name="meanings">Meanings: </string>
+    <string name="part_of_speech">Part of speech: </string>
+    <string name="definition">Definition: </string>
 </resources>
